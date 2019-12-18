@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+   <head>  
+     <link rel="stylesheet" href="css/main.css" />
+     <style>
+
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+    </style>
+ <body>
+    <div style="text-align: right;">
+          <br>
+          <button class="button2"><a href="/">Home</a></button>
+    </div>
+      <br><h2 style="text-align: center;">Welcome to Delete Functionality</h2>
+   <div align="center">
+	<form method="POST">
+		<label>Delete Employee by Empl ID: </label>&nbsp;&nbsp;<input type="text" name="delete"><br/><br>
+		           <button class="button2" type="submit"><a>Submit</a></button>
+	</form>
+		
+	<html>
+		<h3 style="color: green;"> {{.InputMessage}}</h3>
+		<h3 style="color: green;"> {{.SuccessMessage}}</h3>
+		<h3 style="color: red;">{{.FailedMessage}}</h3>
+		<body>
+			{{if .ListLen}}
+				<table>
+					<tr>
+						<br><br>
+						<th>Empl ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Age</th>
+					</tr>
+					{{range.Emps}}   
+						<tr>
+							<td>{{.Id}}</td>
+							<td>{{.FirstName}}</td>
+							<td>{{.LastName}}</td>
+							<td>{{.Age}}</td>
+						</tr>
+					{{end}}
+				</table>
+			{{end}}
+			{{if .ListLen eq 0}} 
+				<h3>No data to display!</h3>
+			{{end}}	
+
+      </div>
+   </body>
+</html>

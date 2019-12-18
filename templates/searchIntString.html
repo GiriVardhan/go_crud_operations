@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+   <head>  
+     <link rel="stylesheet" href="css/main.css" />
+     <style>
+	table {
+		font-family: arial, sans-serif;
+	        border-collapse: collapse;
+		width: 100%;
+		
+              }
+	td, th {
+  		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+         	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+		}
+      </style>
+   </head>
+     <body>
+       <div style="text-align: right;">
+          <br>
+          <button class="button2"><a href="/">Home</a></button>
+       </div>
+       <div align="center">
+        <h1>Search Functionality</h1>
+        <form method="POST">
+	   <label>Empl Id Search:</label><input type="text" name="empid"><br/><br>
+	   <label>FirstName Search:</label><input type="text" name="firstname" style="text-transform: uppercase;"><br/><br>
+           <button class="button2" type="submit"><a>Submit</a></button>
+         </form>
+	{{if .Emplen}}
+	<table>	<tr><br><br>
+ 		  <th>Empl ID</th>
+		  <th>First Name</th>
+		  <th>Last Name</th>
+		  <th>Age</th>
+		</tr>
+		 {{range.Emps}}   
+		<tr>
+		   <td>{{.Id}}</td>
+		   <td>{{.FirstName}}</td>
+		   <td>{{.LastName}}</td>
+		   <td>{{.Age}}</td>
+		</tr>
+		{{end}}
+			</table>
+         {{else}} 
+	   <h1>{{.Msg}}</h1>
+	 {{end}}
+       </div>	
+     </body>
+</html>

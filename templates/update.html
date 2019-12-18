@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>    
+     <div align="center" bgcolor="lightcyan">
+        {{if .Success}}
+           <div align="center">
+               <h1>Employee Info updated successfully!</h1>
+               <button class="button2"><a href="/">Home Page</a></button>
+           </div>
+        {{else}}
+        <h1>Employee Info</h1>
+        <form method="POST">
+          <label>Employee Id:</label><br />
+          <input type="text" name="emplid"><br />
+          <label>Age:</label><br />
+          <input type="number" name="age"><br />        
+          <button class="button2" type="submit"><a>Submit</a></button>
+        </form>
+        {{end}}
+     </div> 
+  </body>
+</html>
